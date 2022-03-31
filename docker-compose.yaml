@@ -13,7 +13,7 @@ services:
     stdin_open: true
     restart: unless-stopped
     volumes:
-    - mc:/data
+    - ./minecraft-data:/data
   backups:
     image: itzg/mc-backup
     restart: unless-stopped
@@ -22,10 +22,8 @@ services:
       INITIAL_DELAY: "120"
     volumes:
     # mount the same volume used by server, but read-only
-    - mc:/data:ro
+    - ./minecraft-data:/data:ro
     # use a host attached directory so that it in turn can be backed up
     # to external/cloud storage
     - ./mc-backups:/backups
     network_mode: "service:mc"
-volumes:
-  mc: {}
