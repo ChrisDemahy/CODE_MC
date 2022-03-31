@@ -12,3 +12,20 @@ services:
     tty: true
     stdin_open: true
     restart: unless-stopped
+    volumes:
+    - mc:/data
+  backups:
+    image: itzg/mc-backup
+    restart: unless-stopped
+    environment:
+      BACKUP_INTERVAL: "15m"
+      INITIAL_DELAY: "120"
+    volumes:
+    # mount the same volume used by server, but read-only
+    - mc:/data:ro
+    # use a host attached directory so that it in turn can be backed up
+    # to external/cloud storage
+    - ./mc-backups:/backups
+    
+volumes:
+  mc: {}
