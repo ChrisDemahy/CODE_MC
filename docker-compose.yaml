@@ -9,6 +9,7 @@ services:
       EULA: "TRUE"
       TYPE: "PAPER"
       MEMORY: "3G"
+      SPIGET_RESOURCES: "9089"
     tty: true
     stdin_open: true
     restart: unless-stopped
