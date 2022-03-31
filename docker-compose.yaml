@@ -26,6 +26,6 @@ services:
     # use a host attached directory so that it in turn can be backed up
     # to external/cloud storage
     - ./mc-backups:/backups
-    
+    network_mode: "service:mc"
 volumes:
   mc: {}
