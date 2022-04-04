@@ -4,23 +4,32 @@ services:
   mc:
     image: itzg/minecraft-server
     ports:
-      - 25565:25565
+      - 25565:25565/tcp
+      - 19132:19132/udp
     environment:
       EULA: "TRUE"
       TYPE: "PAPER"
       MEMORY: "3G"
-      SPIGET_RESOURCES: "9089"
+      WORLD: "/worlds/startup_world.zip"
+      WHITELIST_FILE: "/extra/whitelist.json"
+      OPS_FILE: "/extra/ops.json"
+      OVERRIDE_WHITELIST: "TRUE"
+      OVERRIDE_OPS: "TRUE"
+      WHITELIST: "grouchguy,pieguy1025"
     tty: true
     stdin_open: true
     restart: unless-stopped
     volumes:
     - ./minecraft-data:/data
+    - ./worlds:/worlds:ro
+    - ./extra:/extra:ro
   backups:
     image: itzg/mc-backup
     restart: unless-stopped
     environment:
       BACKUP_INTERVAL: "15m"
-      INITIAL_DELAY: "120"
+      INITIAL_DELAY: "180"
+      PAUSE_IF_NO_PLAYERS: "TRUE"
     volumes:
     # mount the same volume used by server, but read-only
     - ./minecraft-data:/data:ro
