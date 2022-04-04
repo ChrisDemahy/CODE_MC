@@ -22,6 +22,7 @@ services:
     - ./minecraft-data:/data
     - ./worlds:/worlds:ro
     - ./extra:/extra:ro
+    - ./plugins:/data/plugins
   backups:
     image: itzg/mc-backup
     restart: unless-stopped
