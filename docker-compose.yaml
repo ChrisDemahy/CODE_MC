@@ -11,11 +11,10 @@ services:
       TYPE: "PAPER"
       MEMORY: "3G"
       WORLD: "https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz"
-      WHITELIST_FILE: "/extra/whitelist.json"
-      OPS_FILE: "/extra/ops.json"
+      WHITELIST_FILE: "https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/whitelist.json"
+      OPS_FILE: "https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/ops.json"
       OVERRIDE_WHITELIST: "TRUE"
       OVERRIDE_OPS: "TRUE"
-      WHITELIST: "grouchguy,pieguy1025"
     tty: true
     stdin_open: true
     restart: unless-stopped
