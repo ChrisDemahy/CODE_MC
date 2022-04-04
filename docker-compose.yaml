@@ -10,7 +10,7 @@ services:
       EULA: "TRUE"
       TYPE: "PAPER"
       MEMORY: "3G"
-      WORLD: "/worlds/startup_world.zip"
+      WORLD: "https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz"
       WHITELIST_FILE: "/extra/whitelist.json"
       OPS_FILE: "/extra/ops.json"
       OVERRIDE_WHITELIST: "TRUE"
