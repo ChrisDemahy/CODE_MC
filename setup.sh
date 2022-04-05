@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Linode Longview
-curl -s https://lv.linode.com/B10B7A1D-E582-444D-A97618B5CDF4F092 | bash &&
+curl -s https://lv.linode.com/AE4B1674-7E2B-4A49-94AC355D25BD1183 | bash &&
 
 # Create the folder that will be mounted by the container
 mkdir minecraft-data
