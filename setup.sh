@@ -15,6 +15,9 @@ curl -O https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/lastSucces
 # Floodgate
 curl -O https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/target/floodgate-spigot.jar &&
 
+# Dynamap
+curl -O https://dev.bukkit.org/projects/dynmap/files/3724063/download
+
 # Move out of the folder
 cd .. 
 
@@ -32,6 +35,13 @@ tar zxvf world-20220404-020652.tgz &&
 
 # Move out of the folder
 cd .. 
+
+# Download the nginx.conf file
+curl -O 
+
+# Grab the docker compose file
+
+curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compose.yaml
 
 # Start the service fabric
 docker-compose up
