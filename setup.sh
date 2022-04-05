@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Install Linode Longview
-curl -s https://lv.linode.com/B650CB0D-5D60-435F-9B7F9216597C23EB | bash &&
-
 # Create the plugins folder
 mkdir plugins 
 
