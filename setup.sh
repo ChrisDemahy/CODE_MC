@@ -24,8 +24,4 @@ curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compos
 SLEEP 15 &&
 
 # Raise the Service Fabric
-<<<<<<< HEAD
 docker-compose up
-=======
-
->>>>>>> df5c196fdb88c67f2d0936f4482dfdf936d1fe00
