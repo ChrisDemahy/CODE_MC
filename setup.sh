@@ -28,20 +28,19 @@ mkdir minecraft-data
 cd ./minecraft-data/ 
 
 # Download the most recent archive
-curl -O https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz &&
+curl -O https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220405-110742.tgz &&
 
 # Extract the archive
-tar zxvf world-20220404-020652.tgz &&
+tar zxvf world-20220405-110742.tgz &&
 
 # Move out of the folder
 cd .. 
 
 # Download the nginx.conf file
-curl -O 
+curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/nginx.conf 
 
-# Grab the docker compose file
+# Grab the docker compose file &  Start the service fabric
+(curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compose.yaml && docker-compose up -d )&
 
-curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compose.yaml
+touch success
 
-# Start the service fabric
-docker-compose up
