@@ -20,5 +20,11 @@ cd ..
 # Get the docker compose file
 curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compose.yaml
 
+# write to the console
+echo "SLEEPING FOR 30 SECONDS"
+
+# Sleep to let it download
+SLEEP 30
+
 # Raise the Service Fabric
 docker-compose up
