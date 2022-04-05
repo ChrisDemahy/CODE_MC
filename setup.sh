@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Linode Longview
-curl -s https://lv.linode.com/8DF6FD88-AF5F-410D-8C9F8D56BFEB1291 | bash &
+curl -s https://lv.linode.com/3783D22D-3B8A-4D8C-8DB79BA09694EC1A | bash &
 
 # Download the most recent archive
 curl -O https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz &&
