@@ -17,5 +17,8 @@ cd .. &&
 # Get the docker compose file
 curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compose.yaml &&
 
+# Give the script a second to download
+SLEEP 15 &&
+
 # Raise the Service Fabric
-docker-compose up -d
+docker-compose up
