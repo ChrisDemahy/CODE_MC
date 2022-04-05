@@ -16,5 +16,8 @@ curl -O https://minecraft-backups.us-southeast-1.linodeobjects.com/world-2022040
 tar zxvf world-20220404-020652.tgz &&
 cd .. 
 
+# Download the docker-compose
+curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compose.yaml
+
 # Raise the Service Fabric
 (SLEEP 30 && docker-compose up)
