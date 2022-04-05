@@ -1,21 +1,20 @@
 #!/bin/bash
 
 # Install Linode Longview
-curl -s https://lv.linode.com/7AB000CC-09D9-45FE-8BF2790A33CB7420 | bash 
-
-# Download the most recent archive
-curl -O https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz
+curl -s https://lv.linode.com/B10B7A1D-E582-444D-A97618B5CDF4F092 | bash &&
 
 # Create the folder that will be mounted by the container
 mkdir minecraft-data
 
-# Move it to the folder
-mv ./world-20220404-020652.tgz ./minecraft-data/world-20220404-020652.tgz 
+# Move in to the folder
 cd ./minecraft-data/ 
 
+# Download the most recent archive
+curl -O https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz &&
+
 # Extract the archive
-tar zxvf world-20220404-020652.tgz
+tar zxvf world-20220404-020652.tgz &&
 cd .. 
 
 # Raise the Service Fabric
-docker-compose up
+(SLEEP 30 && docker-compose up)
