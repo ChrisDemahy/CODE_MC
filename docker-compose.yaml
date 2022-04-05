@@ -10,7 +10,7 @@ services:
       EULA: "TRUE"
       TYPE: "PAPER"
       MEMORY: "3G"
-      WORLD: "https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz"
+      # WORLD: "https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz"
       WHITELIST_FILE: "https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/whitelist.json"
       OPS_FILE: "https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/ops.json"
       OVERRIDE_WHITELIST: "TRUE"
