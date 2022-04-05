@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # Install Linode Longview
-curl -s https://lv.linode.com/8DF6FD88-AF5F-410D-8C9F8D56BFEB1291 | bash &
+curl -s https://lv.linode.com/3783D22D-3B8A-4D8C-8DB79BA09694EC1A | bash &
 
 # Download the most recent archive
 curl -O https://minecraft-backups.us-southeast-1.linodeobjects.com/world-20220404-020652.tgz &&
 
-# Move it to the folder that will be mounted by the container
+# Create the folder that will be mounted by the container
+mkdir minecraft-data
+
+# Move it to the folder
 mv ./world-20220404-020652.tgz ./minecraft-data/world-20220404-020652.tgz &&
 cd ./minecraft-data/ &&
 
@@ -21,4 +24,8 @@ curl -O https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/docker-compos
 SLEEP 15 &&
 
 # Raise the Service Fabric
+<<<<<<< HEAD
 docker-compose up
+=======
+
+>>>>>>> df5c196fdb88c67f2d0936f4482dfdf936d1fe00
