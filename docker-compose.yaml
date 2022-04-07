@@ -15,6 +15,7 @@ services:
       OPS_FILE: "https://raw.githubusercontent.com/ChrisDemahy/CODE_MC/main/ops.json"
       OVERRIDE_WHITELIST: "TRUE"
       OVERRIDE_OPS: "TRUE"
+      ENFORCE_WHITELIST: "TRUE"
     tty: true
     stdin_open: true
     restart: unless-stopped
