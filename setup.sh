@@ -16,7 +16,7 @@ curl -O https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/lastSucces
 curl -O https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/target/floodgate-spigot.jar &&
 
 # Dynamap
-curl -O https://dev.bukkit.org/projects/dynmap/files/3724063/download
+https://media.forgecdn.net/files/3724/63/Dynmap-3.4-beta-3-spigot.jar
 
 # Move out of the folder
 cd .. 
