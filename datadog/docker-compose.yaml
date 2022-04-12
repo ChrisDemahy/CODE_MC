@@ -106,8 +106,8 @@ services:
     - /etc/timezone:/etc/timezone:ro
     - /var/run/datadog/:/var/run/datadog/
     - ./dd-config.json:/etc/nginx/dd-config.json:ro
-    #ports:
-    #  - 443:443/tcp
+    ports:
+     - 443:443/tcp
 networks:
   default:
     external:
