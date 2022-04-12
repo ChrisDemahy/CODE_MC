@@ -22,7 +22,7 @@ services:
       # Datadog
       ENABLE_JMX: "TRUE"
       JMX_HOST: "localhost"
-      JVM_OPTS: "-javaagent:/data/dd-java-agent.jar -Ddd.profiling.enabled=true -XX:FlightRecorderOptions=stackdepth=256 -Ddd.logs.injection=true -Ddd.appsec.enabled=true -Ddd.trace.sample.rate=1 -Ddd.service=mc -Ddd.env=prod -Ddd.version=1.0"
+      JVM_OPTS: "-javaagent:/data/dd-java-agent.jar -Ddd.profiling.enabled=true -Ddd.appsec.enabled=true -Ddd.service=mc -Ddd.env=prod -XX:FlightRecorderOptions=stackdepth=256 -Ddd.logs.injection=true -Ddd.appsec.enabled=true -Ddd.trace.sample.rate=1 -Ddd.service=mc -Ddd.env=prod -Ddd.version=1.0"
       DD_AGENT_HOST: "datadog-agent"
       DD_TRACE_AGENT_PORT: 8126
       DD_TRACE_AGENT_URL: http://datadog-agent:8126
