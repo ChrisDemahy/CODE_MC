@@ -18,6 +18,9 @@ curl -O https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSucc
 # Dynamap
 curl -O https://media.forgecdn.net/files/3724/63/Dynmap-3.4-beta-3-spigot.jar
 
+# Wilderness TP
+curl -O -L https://www.spigotmc.org/resources/wilderness-tp.18431/download?version=444940
+
 # Move out of the folder
 cd .. 
 
