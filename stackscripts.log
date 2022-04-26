@@ -1,0 +1,89 @@
+[
+  {
+    "created": "2019-10-31T20:14:04",
+    "deployments_active": 1348,
+    "deployments_total": 16806,
+    "description": "Docker One Click App",
+    "id": 607433,
+    "images": [
+      "linode/debian10",
+      "linode/debian11",
+      "linode/ubuntu20.04"
+    ],
+    "is_public": true,
+    "label": "Docker One-Click",
+    "mine": false,
+    "rev_note": "Initial import",
+    "script": "#!/usr/bin/env bash\n\n### UDF Variables\n\n## Docker Settings\n#<UDF name=\"dockerfile\"  Label=\"Resource to download?\" example=\"URL to Dockerfile or docker-compose.yml\" default=\"\">\n#<UDF name=\"runcmd\" Label=\"Command to run?\" example=\"docker run --name spigot --restart unless-stopped -e JVM_OPTS=-Xmx4096M -p 25565:25565 -itd example/docker-spigot\" default=\"\">\n\n## Linode/SSH Security Settings\n#<UDF name=\"username\" label=\"The limited sudo user to be created for the Linode\" default=\"\">\n#<UDF name=\"password\" label=\"The password for the limited sudo user\" default=\"\">\n#<UDF name=\"pubkey\" label=\"The SSH Public Key that will be used to access the Linode\" default=\"\">\n#<UDF name=\"disable_root\" label=\"Disable root access over SSH?\" oneOf=\"Yes,No\" default=\"No\">\n\n## Domain Settings\n#<UDF name=\"token_password\" label=\"Your Linode API token. This is required if filling out any of the domain-related fields.\" default=\"\">\n#<UDF name=\"subdomain\" label=\"The subdomain for your server\" default=\"\">\n#<UDF name=\"domain\" label=\"Your domain\" default=\"\">\n#<UDF name=\"soa_email_address\" label=\"Admin Email for the server\" default=\"\">\n#<UDF name=\"mx\" label=\"Do you need an MX record for this domain? (Yes if sending mail from this Linode)\" oneOf=\"Yes,No\" default=\"No\">\n#<UDF name=\"spf\" label=\"Do you need an SPF record for this domain? (Yes if sending mail from this Linode)\" oneOf=\"Yes,No\" default=\"No\">\n\n### Logging and other debugging helpers\n\n## Enable logging for the StackScript\nexec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1\n# Source the Linode Bash StackScript, API, and OCA Helper libraries\nsource <ssinclude StackScriptID=1>\nsource <ssinclude StackScriptID=632759>\nsource <ssinclude StackScriptID=401712>\n\n# Source and run the New Linode Setup script for DNS/SSH configuration\nsource <ssinclude StackScriptID=666912>\n\n## Local functions used by this script\n\nfunction docker_ce_install {\n    # Install the dependencies & add Docker to the APT repository\n    system_install_package apt-transport-https ca-certificates curl software-properties-common gnupg2\n    curl -fsSL https://download.docker.com/linux/\"${detected_distro[distro]}\"/gpg | apt-key add -\n    add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/\"${detected_distro[distro]}\" $(lsb_release -cs) stable\"\n\n    # Update & install Docker-CE\n    apt_setup_update \n    system_install_package docker-ce\n}\n\nfunction docker_compose_install {\n    # Install Docker Compose\n    curl -L \"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose\n    chmod +x /usr/local/bin/docker-compose\n    docker-compose --version\n\n    docker-compose up\n}\n\n# Remove any existing Docker installations\nsystem_remove_package docker docker-engine docker.io\n\n# Download the Dockerfile, if specified\n[ \"$DOCKERFILE\" ] && curl -LO \"$DOCKERFILE\"\n\n# Install Docker CE and Docker Compose\ndocker_ce_install\ndocker_compose_install\n\n# Configure the firewall\n## code will go here\n\n# Wait 2 seconds, then run the container\nsleep 2\n[ \"$RUNCMD\" ] && $RUNCMD &",
+    "updated": "2022-04-11T19:42:46",
+    "user_defined_fields": [
+      {
+        "default": "",
+        "example": "URL to Dockerfile or docker-compose.yml",
+        "label": "Resource to download?",
+        "name": "dockerfile"
+      },
+      {
+        "default": "",
+        "example": "docker run --name spigot --restart unless-stopped -e JVM_OPTS=-Xmx4096M -p 25565:25565 -itd example/docker-spigot",
+        "label": "Command to run?",
+        "name": "runcmd"
+      },
+      {
+        "default": "",
+        "label": "The limited sudo user to be created for the Linode",
+        "name": "username"
+      },
+      {
+        "default": "",
+        "label": "The password for the limited sudo user",
+        "name": "password"
+      },
+      {
+        "default": "",
+        "label": "The SSH Public Key that will be used to access the Linode",
+        "name": "pubkey"
+      },
+      {
+        "default": "No",
+        "label": "Disable root access over SSH?",
+        "name": "disable_root",
+        "oneof": "Yes,No"
+      },
+      {
+        "default": "",
+        "label": "Your Linode API token. This is required if filling out any of the domain-related fields.",
+        "name": "token_password"
+      },
+      {
+        "default": "",
+        "label": "The subdomain for your server",
+        "name": "subdomain"
+      },
+      {
+        "default": "",
+        "label": "Your domain",
+        "name": "domain"
+      },
+      {
+        "default": "",
+        "label": "Admin Email for the server",
+        "name": "soa_email_address"
+      },
+      {
+        "default": "No",
+        "label": "Do you need an MX record for this domain? (Yes if sending mail from this Linode)",
+        "name": "mx",
+        "oneof": "Yes,No"
+      },
+      {
+        "default": "No",
+        "label": "Do you need an SPF record for this domain? (Yes if sending mail from this Linode)",
+        "name": "spf",
+        "oneof": "Yes,No"
+      }
+    ],
+    "user_gravatar_id": "9d4d301385af69ceb7ad658aad09c142",
+    "username": "linode"
+  }
+]

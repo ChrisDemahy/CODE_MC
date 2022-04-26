@@ -1,7 +1,0 @@
-{
-    "environment": "prod",
-    "service": "nginx",
-    "operation_name_override": "nginx.handle",
-    "agent_host": "datadog-agent",
-    "agent_port": 8126
-  }

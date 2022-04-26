@@ -16,6 +16,9 @@ services:
       OVERRIDE_WHITELIST: "TRUE"
       OVERRIDE_OPS: "TRUE"
       ENFORCE_WHITELIST: "TRUE"
+      RESOURCE_PACK: "https://faithful.team/api/versions/1.18.zip"      
+      DATAPACKS_FILE: "/data/datapacks.txt"
+      
     tty: true
     stdin_open: true
     restart: unless-stopped
